@@ -11,8 +11,8 @@
 
 ## Parent component (App.js) passing props to a child component (User)
 
-- What information is being passed to the `<User />` component?
-- How would you access that information in the `User` component?
+- What information is being passed to the `<User />` component? The name key from the userDetails object
+- How would you access that information in the `User` component? We would destructure it and use it in the component.
 
 ```jsx
 const App = () => {
@@ -27,9 +27,9 @@ const App = () => {
 
 ## Child component (User) accessing and rendering props
 
-- What is `const { name } = props;` doing?
-- Could you access props a different way?
-- Why do we put the variable `name` in brackets inside of our `<h1>`?
+- What is `const { name } = props;` doing? destructoring name from the props we passed the child component
+- Could you access props a different way? yes with props.name or param destruction in a list at the top
+- Why do we put the variable `name` in brackets inside of our `<h1>`? Because the name vaule is dynamic
 
 ```jsx
 const User = (props) => {
@@ -45,8 +45,8 @@ const User = (props) => {
 
 ## Using the spread operator to pass props
 
-- What is `{...userDetails}` doing?
-- What would this look like written out?
+- What is `{...userDetails}` doing?  it spreads the key value pairs in the userDetail object and lets us use all the details in the user component. It passes along all key/value pairs from `userDetails.
+- What would this look like written out? <User name = {userDetails.name}, userId = {userDetails.userId} email= {userDetails.email}/> is equal to {...userDetails}
 
 ```jsx
 const App = () => {
@@ -61,10 +61,10 @@ const App = () => {
 
 ## Rendering a list of items (ProductItem) using props
 
-- What data type is `products`?
-- What does the `map` method do?
-- How does the `map` method differ in React?
-- What is `{listItems}` going to display?
+- What data type is `products`? An Array
+- What does the `map` method do? loops through every object in the array and executes a command
+- How does the `map` method differ in React? it use data to create list items for multiple components
+- What is `{listItems}` going to display? a list of component, an array of items. All the items we stored and display it on the page.
 
 ```jsx
 const ProductPage = () => {
