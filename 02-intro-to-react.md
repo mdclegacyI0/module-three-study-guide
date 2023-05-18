@@ -11,7 +11,10 @@
 | __DOM__ | Document Object Model: A programming interface that represents the structure and content of a web page as objects, allowing manipulation and modification of the page. |
 | __Virtual DOM__ | A virtual representation of the actual DOM in memory that React uses to efficiently update and render components. |
 | __Components__ | Independent and reusable building blocks in React that encapsulate the UI and behavior of a part of a web page. |
-| __JSX__ | JavaScript XML: A syntax extension for JavaScript that allows you to write HTML-like code in JavaScript, used in React to define the structure and appearance of components. |
+| __JSX__ | JavaScript XML: A syntax extension for JavaScript that allows you to write HTML-like code in JavaScript, used in React to define the structure and appearance of components, noun Computing
+a metalanguage which allows users to define their own customized markup languages, especially in order to display documents on the internet.
+ORIGIN
+1990s: short for Extensible Markup Language.
 | __Boilerplate code__ | Pre-written code that serves as a starting point for development, often providing basic setup and configurations. |
 | __npx__ | A command-line tool that is bundled with npm which allows you to execute Node.js packages without the need to install them globally on your system. It stands for "Node Package eXecutor."
 
@@ -34,7 +37,7 @@
 
 ## Setting Up a New Create React App Project
 
-- How would you give this a different name, like `the-ultimate-react-portfolio`, instead?
+- How would you give this a different name, like `the-ultimate-react-portfolio`, instead? just put the-ultimate-react-portfolio behind npx create-react-app. this represents where it will be placed.
 
 ```bash
 npx create-react-app my-social-media-app
@@ -42,8 +45,8 @@ npx create-react-app my-social-media-app
 
 ## Starting the React App
 
-- What is `cd my-social-media-app` doing?
-- Where would you find the `npm start` script?
+- What is `cd my-social-media-app` doing? changing directories and going into the app folder 
+- Where would you find the `npm start` script? in the package json file
 
 ```bash
 cd my-social-media-app
@@ -53,10 +56,10 @@ npm start
 ## A Simple __App.js__ Structure
 The following code should give you a blank but functional web page.
 
-- What is `import "./App.css";` doing?
-- Why are we using `className` instead of `class` on our `div`?
-- Why is the page blank?
-- What does `export default` do?
+- What is `import "./App.css";` doing? Importing the cascading style sheet styles for the App.js component. These styles are usually global in App.css but css can be made for a particular component, one to one (usually named together).
+- Why are we using `className` instead of `class` on our `div`? Because class is a reserved keyword in HTML, so we can't use it in react. JSX is gonna be converted into html. The same for htmlFor.
+- Why is the page blank? Because we aren't returning anything. No content for our App yet.
+- What does `export default` do? It exports the default component for that file. In this case, it's exporting the App function.
 
 ```js
 import "./App.css";
@@ -71,10 +74,10 @@ export default App;
 ## Using JSX
 This code calls a function, formatName, in the embedded expression. The return value of this function, My Name, is then added to the h1 element after Hello.
 
-- Why does the function use `user.firstName` and `user.lastName` instead of just `firstName` and `lastName`?
-- What's the difference between the `user` in the function `formatName(user)` and the `const user`?
-- What data type is the `user` variable?
-- Why are there brackets around our function call `{formatName(user)}`?
+- Why does the function use `user.firstName` and `user.lastName` instead of just `firstName` and `lastName`? Because its using dot notation to access an object called user.
+- What's the difference between the `user` in the function `formatName(user)` and the `const user`? User in `formatName(user)`, is a parameter  that receives a value and User in 'const User' is a variable that we set the value to.
+- What data type is the `user` variable? an Object
+- Why are there brackets around our function call `{formatName(user)}`? Because we are using it in a h1 tag and we are embed the dynamic information in jsx.
 
 ```js
 function formatName(user) {
@@ -91,8 +94,8 @@ const hello = <h1>Hello, {formatName(user)}!</h1>;
 
 ## Child Components
 
-- What is the purpose of the empty brackets `<></>`? What are they called?
-- If you removed the parenthesis from `return (...);` would the code still work? Why or why not?
+- What is the purpose of the empty brackets `<></>`? What are they called? The empty brackets are used to wrap mulitple jsx tags and its called a React fragment. Fragment that serves as a single parent tag in returning JSX.
+- If you removed the parenthesis from `return (...);` would the code still work? Why or why not? No it would not because it needs the paranthesis to wrap multiline code. 
 
 ```js
 // src/ContactList.js
@@ -111,9 +114,9 @@ export default function ContactList() {
 }
 ```
 
-- Does the `import` name `ContactList` need to match the name of the component?
-- Why isn't the import name `ContactList` inside curly brackets?
-- Why is the implementation of the component `<ContactList />` self-closed? When should it not be self-closed?
+- Does the `import` name `ContactList` need to match the name of the component? no it doesnt have to match because its a default component.
+- Why isn't the import name `ContactList` inside curly brackets? because its a component and not and dynamic function.
+- Why is the implementation of the component `<ContactList />` self-closed? When should it not be self-closed? Because it doesn't have any children. do if it does then it has open and closing.
 
 ```js
 // src/App.js
@@ -133,7 +136,7 @@ export default App;
 
 ## Duplicating Components
 
-- What would happen if we replaced all the dynamic data in `Post.js` with static data?
+- What would happen if we replaced all the dynamic data in `Post.js` with static data? the two posts would be exactly the same
 - What would show on the page if we duplicated the `<ContactList />` component?
 
 ```js
