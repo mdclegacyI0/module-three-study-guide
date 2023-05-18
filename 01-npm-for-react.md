@@ -12,18 +12,18 @@
 
 ## Creating a Node.js project
 
-- What does `mkdir` stand for?
-- What does `cd` stand for?
+- What does `mkdir` stand for? It stands for make directory(folder)
+- What does `cd` stand for? It stands for change directory(folder)
 
 ```bash
 mkdir my-node-project
 cd my-node-project
-npm init
+npm init(Intialize)
 ```
 
 ## Exporting a Variable
 
-- What does the `default` keyword do?
+- What does the `default` keyword do? If we want to export a single value or to have a fallback value for your module, you could use a default export.
 
 ```js
 export default message;
@@ -31,8 +31,8 @@ export default message;
 
 ## Importing a Module
 
-- The import name `importedMessage` doesn't match the export name `message` from above. Is that ok?
-- Does this renaming on import change the name of the export?
+- The import name `importedMessage` doesn't match the export name `message` from above. Is that ok? yes, its ok because its only one component being exported, it still the smae vaule from the file.
+- Does this renaming on import change the name of the export? No, it still stays the same in the home file and can be reused else where.
 
 ```js
 import importedMessage from "./messages.js";
@@ -40,8 +40,8 @@ import importedMessage from "./messages.js";
 
 ## Exporting & Importing Multiple Variables
 
-- These import and export names do match, why is that?
-- Could we change them to not match?
+- These import and export names do match, why is that? because there are multiple named varibles being transfered between components.
+- Could we change them to not match? No
 
 ```js
 // messages.js
@@ -51,8 +51,8 @@ import { message, anotherMessage } from "./messages.js";
 
 ## Renaming Imported Modules
 
-- What are some benefits of renaming imported variables?
-- What are some good conventions to follow when naming variables?
+- What are some benefits of renaming imported variables? We can solve naming conflicts in the file that we are importing to.
+- What are some good conventions to follow when naming variables? Make sure the name is descriptive and unique names. They give context to what you are using them for and they avoid keywords. Avoid accessive abbreviations.
 
 ```js
 import {message as hello, anotherMessage} from "./messages.js";
@@ -60,8 +60,8 @@ import {message as hello, anotherMessage} from "./messages.js";
 
 ## Exporting a Function
 
-- What's the purpose of exporting a function?
-- How come we don't include the parameters in our export?
+- What's the purpose of exporting a function? To use the functionality in another component(file)
+- How come we don't include the parameters in our export? becuase this would call the function and we aren't trying too do that
 
 ```js
 const customMessage = (message, name) => {
@@ -73,8 +73,8 @@ module.exports = { message, anotherMessage, customMessage };
 
 ## Importing a Function
 
-- How do we know that `customMessage` is a function?
-- Why are we passing "Nice to see you," and "Ava" to the `customMessage` function?
+- How do we know that `customMessage` is a function? we could go to the export file and look, we can console.log it
+- Why are we passing "Nice to see you," and "Ava" to the `customMessage` function? because the function expects two parameters and needs them to be called correctly.
 
 ```js
 import {
@@ -88,7 +88,7 @@ console.log(customMessage("Nice to see you,", "Ava"));
 
 ## Exporting JSON
 
-- Why isn't there an export statement anywhere?
+- Why isn't there an export statement anywhere? because it exports data by default. thats its whole purpose.
 
 ```json
 [
@@ -112,8 +112,8 @@ console.log(customMessage("Nice to see you,", "Ava"));
 
 ## Importing JSON
 
-- What's different about importing JSON compared to other imports?
-- Do we need to `assert` the data type for JSON in the latest version of React?
+- What's different about importing JSON compared to other imports? We need to assert the type as json if we are using vanilla js
+- Do we need to `assert` the data type for JSON in the latest version of React? No because react has webpack and webpack use json loader that deals with that.
 
 ```js
 import donuts from "./donuts.json" assert { type: "json" };
@@ -121,7 +121,7 @@ import donuts from "./donuts.json" assert { type: "json" };
 
 ## Create a Custom Script in `package.json`
 
-- What benefits can you see from creating your own scripts?
+- What benefits can you see from creating your own scripts? Error handling, increase productivity, customize tasks, etc. 
 
 ```json
 // package.json
