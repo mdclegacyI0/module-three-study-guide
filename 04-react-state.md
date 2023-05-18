@@ -18,7 +18,7 @@
 
 ## Vanilla JavaScript event listener and handler
 
-- What are some of the biggest challenges when writing event listeners and handlers in vanilla javascript?
+- What are some of the biggest challenges when writing event listeners and handlers in vanilla javascript? handlers have to be reset, we aslo have more to write out
 
 ```html
 <!-- HTML -->
@@ -37,8 +37,8 @@ button.addEventListener("click", () => {
 
 ## React event listener and handler without arguments
 
-- How does this differ from the vanilla js process?
-- What is the `changeMode` function called?
+- How does this differ from the vanilla js process? it looks more cleaner and is passed in jsx
+- What is the `changeMode` function called? an event handler
 
 ```jsx
 function App() {
@@ -56,10 +56,10 @@ function App() {
 
 ## React event listener and handler with arguments
 
-- How does adding arguments change our event listener and event handler?
-- What is the arrow function doing inside of our `onClick`?
-- What is the arrow function called? Why is it called this?
-- What would happen if you didn't include the arrow function?
+- How does adding arguments change our event listener and event handler? it calls the function
+- What is the arrow function doing inside of our `onClick`? It delays the function from being called until the event happens, because the parenthesis is added to the function it needs an anonymos funtion to delay it from being called.
+- What is the arrow function called? Why is it called this? It is called an anonymous function and its called that because it has no name or parameter
+- What would happen if you didn't include the arrow function? it would call the the function on load of the dom
 
 ```jsx
 function App() {
@@ -77,10 +77,10 @@ function App() {
 
 ## Creating state using React Hooks
 
-- Why do we import `useState` inside of brackets?
-- What does `mode` represent?
-- What does `setMode` represent?
-- Why are we passing the string `'light'` to the `useState` hook?
+- Why do we import `useState` inside of brackets? because it is a named function being imported from React and is not a default. 
+- What does `mode` represent? Its the state (the way it starts) set by the destructing of useState and set in parenthesis.
+- What does `setMode` represent? The way we are updating the value
+- Why are we passing the string `'light'` to the `useState` hook? it sets the state
 
 ```jsx
 import { useState } from "react";
@@ -94,8 +94,8 @@ function App() {
 
 ## Updating state in React
 
-- Why are we using an if statement here?
-- What is the `setMode` function doing?
+- Why are we using an if statement here? Because we want to toggle between light and dark themes, basically definiing our options for updating state
+- What is the `setMode` function doing? rerending mode, updating it and uses the brillance of react
 
 ```jsx
 function changeMode(modeChoice) {
@@ -110,7 +110,7 @@ function changeMode(modeChoice) {
 ## Don't change state directly
 
 - Why is it important to update the state using the helper functions provided by hooks rather than what we've grown used to in Vanilla JS?
-
+because thats the whole point of react, to rerender quickly
 ```js
 // You may find yourself tempted to do this:
 mode = "light";
@@ -121,9 +121,9 @@ setMode("light");
 
 ## Copying an Array
 
-- Does the spread operator make a shallow copy or a deep copy?
-- How can we use the process of copying an array to avoid changing state directly?
-- What does the `reverse()` method do?
+- Does the spread operator make a shallow copy or a deep copy? It makes a shallow copy of the array 
+- How can we use the process of copying an array to avoid changing state directly? we copy and then we update it how we want to [..somNumsAgain, 50, 60, 70, 80] is equal to [10, 20, 30, 40, 50, 60, 70, 80]
+- What does the `reverse()` method do? reverse the array
 - What will the two logs show?
 
 ```jsx
@@ -136,10 +136,10 @@ console.log('Copied some nums again', copySomeNumsAgain);
 
 ## Shallow Copies
 
-- What happens to nested values in a shallow copy?
-- What is this line `const newFido = { ...dog, name: "Fido Jr." };` doing?
+- What happens to nested values in a shallow copy? it shares a memory space with the original
+- What is this line `const newFido = { ...dog, name: "Fido Jr." };` doing? adding name: "Fido Jr." to a spread array
 - What about this one `newFido.toys[0].name = "Super-sized bone";`?
-- What will the logs of `dog` and `newFido` show?
+- What will the logs of `dog` and `newFido` show? they both changed
 
 ```jsx
 const dog = {
@@ -162,11 +162,11 @@ console.log(newFido);
 ```
 
 ## Deep Copying
-
-- How does a deep copy differ from a shallow copy?
-- What does `JSON.stringify()` do?
-- What does `JSON.parse()` do?
-- What will the logs of `dog` and `newFido` show?
+//review this
+- How does a deep copy differ from a shallow copy? we changed how we copy the the object, turning it into string with JSON.stringify() and then JSON.parse() to create deep copy
+- What does `JSON.stringify()` do? turn it into strings
+- What does `JSON.parse()` do? turnit back into data
+- What will the logs of `dog` and `newFido` show? be different memory copies
 
 ```jsx
 const dog = {
